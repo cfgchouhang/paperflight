@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Background : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		Texture2D texture = Resources.Load ("Textures/LoopSky2") as Texture2D;
-		Material material = new Material (Shader.Find ("Diffuse"));
-		material.mainTexture = texture;
+	public Text text;
+	private Vector3 offset;
 
-		gameObject.GetComponent<Renderer> ().material = material;
+	void Start() {
+		offset = new Vector3(gameObject.GetComponent<Collider>().bounds.size.x * 2, 0);
+	}
+
+	void OnBecameInvisible() {
+		transform.position += offset;
 	}
 }

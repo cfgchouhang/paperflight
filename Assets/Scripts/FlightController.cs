@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flight : MonoBehaviour {
+public class FlightController : MonoBehaviour {
 	private Vector3 mouseDownPosition, velocity;
-	public float initVelocity;
+	public float initVelocity, factor;
 
 	private Rigidbody rb;
 
@@ -25,6 +25,6 @@ public class Flight : MonoBehaviour {
 		} else if (Input.GetMouseButtonUp (0)) {
 			velocity = new Vector3 (Input.mousePosition.x - mouseDownPosition.x, Input.mousePosition.y - mouseDownPosition.y);
 		}
-		rb.velocity += velocity * Time.deltaTime;
+		rb.velocity += velocity * Time.deltaTime * factor;
 	}
 }
