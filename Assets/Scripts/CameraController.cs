@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour {
 
         elapsedTime += Time.deltaTime;
         if (elapsedTime > 0.25f) {
-            text.text = (yBound - player.transform.position.y).ToString();
+            text.text = (py / yBound).ToString();
         }
        
         if(py / yBound > 0.1f && py > yPrev) {
@@ -33,7 +33,7 @@ public class CameraController : MonoBehaviour {
                 z -= (zMax - zMin) * (1f+Mathf.Exp(-2f * py / yBound))  * 0.2f * Time.deltaTime;
             }
         } else if(z < zMax) {
-            z += 20f * 0.2f * Time.deltaTime;
+            z += (zMax - zMin) * (1f+Mathf.Exp(-2f * py / yBound)) * 0.2f * Time.deltaTime;
         }
 
         transform.position = new Vector3(
