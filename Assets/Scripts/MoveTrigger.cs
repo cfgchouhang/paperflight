@@ -18,5 +18,8 @@ public class MoveTrigger : MonoBehaviour {
 
     void OnBecameVisible() {
         nextBackground.transform.position = parent.transform.position + offset;
+        if(isFront) {
+            nextBackground.BroadcastMessage("UpdateBlocksPosition");
+        }
     }
 }

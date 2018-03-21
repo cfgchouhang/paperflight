@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4441516461572524, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114359154272414072, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6,
         type: 2}
@@ -160,7 +160,35 @@ Prefab:
     - target: {fileID: 114591297697314822, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6,
         type: 2}
       propertyPath: blockNumber
-      value: 0
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591297697314822, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6,
+        type: 2}
+      propertyPath: isFirstBG
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591297697314822, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6,
+        type: 2}
+      propertyPath: xBase
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591297697314822, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6,
+        type: 2}
+      propertyPath: xMaxF
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591297697314822, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6,
+        type: 2}
+      propertyPath: xMinF
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114359154272414072, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6, type: 2}
@@ -196,8 +224,8 @@ Transform:
   m_LocalPosition: {x: 4.6834984, y: 1.215339, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 843728571}
   - {fileID: 192960415}
+  - {fileID: 843728571}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -644,7 +672,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4441516461572524, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1638121762374686, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6, type: 2}
       propertyPath: m_Name
@@ -670,7 +698,27 @@ Prefab:
     - target: {fileID: 114591297697314822, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6,
         type: 2}
       propertyPath: blockNumber
-      value: 0
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591297697314822, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6,
+        type: 2}
+      propertyPath: xBase
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591297697314822, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6,
+        type: 2}
+      propertyPath: xMaxF
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591297697314822, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6,
+        type: 2}
+      propertyPath: xMinF
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 64516768290074364, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6,
+        type: 2}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114359154272414072, guid: 4814e8b168a1e4f859ee4ffa6c9e7cf6, type: 2}
@@ -763,7 +811,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1653314235}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d146fd1f0293c4793a95a19b754fb977, type: 3}
   m_Name: 
@@ -786,7 +834,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -810,7 +858,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1653314235}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c6e5eb232ee64f198bad84edfd66ae9, type: 3}
   m_Name: 
