@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class FlightController : MonoBehaviour {
     private Vector3 mouseDownPosition, velocity, baseVelocity, inputVelocity;
     private float elapsedTime, startTime;
+    private enum State {Normal, BirdCatched};
+    private State state;
 
     public float speed, xfactor, yfactor, xmax, ymax;
     public Text text, text2;
@@ -24,6 +26,8 @@ public class FlightController : MonoBehaviour {
         elapsedTime = 0.0f;
         text.text = "velocity: " + rb.velocity.ToString();
         startTime = Time.time;
+
+        state = State.Normal;
     }
     
     // Update is called once per frame
@@ -36,6 +40,10 @@ public class FlightController : MonoBehaviour {
     }
 
     void FixedUpdate() {
+
+        if(state == State.BirdCatched)
+            return;
+        
         Vector3 p = camera.WorldToViewportPoint(transform.position);
 
         if (Input.GetMouseButtonDown (0)) {
@@ -63,5 +71,10 @@ public class FlightController : MonoBehaviour {
         if(transform.position.y > 30f) {
             transform.position = new Vector3(transform.position.x, 30f, transform.position.z);
         }
+    }
+
+    void SetCatched(bool beCatched) {
+        gameObject.GetComponent<Rigidbody>().useGravity = !beCatched;
+        state = beCatched ? State.BirdCatched : State.Normal;
     }
 }
