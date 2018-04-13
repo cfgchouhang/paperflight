@@ -8,6 +8,8 @@ public class FlightController : MonoBehaviour {
     private float elapsedTime, startTime;
     private enum State {Normal, BirdCatched};
     private State state;
+    private float degree, x, y, offset;
+    private Quaternion rFrom, rTo;
 
     public float speed, xfactor, yfactor, xmax, ymax;
     public Text text, text2;
@@ -50,7 +52,9 @@ public class FlightController : MonoBehaviour {
             mouseDownPosition = new Vector3 (Input.mousePosition.x, Input.mousePosition.y);
 
         } else if (Input.GetMouseButtonUp (0)) {
-            inputVelocity = new Vector3 (Input.mousePosition.x - mouseDownPosition.x, Input.mousePosition.y - mouseDownPosition.y);
+            x = Input.mousePosition.x - mouseDownPosition.x;
+            y = Input.mousePosition.y - mouseDownPosition.y;
+            inputVelocity = new Vector3 (x, y);
             inputVelocity = inputVelocity.normalized;
             inputVelocity.x *= xfactor;
             inputVelocity.y *= yfactor;
@@ -61,6 +65,9 @@ public class FlightController : MonoBehaviour {
 
             rb.velocity += inputVelocity;
             startTime = Time.time;
+
+
+
         }
 
         rb.velocity = new Vector3(
@@ -68,13 +75,19 @@ public class FlightController : MonoBehaviour {
             rb.velocity.y /* Mathf.Exp(-(Time.time - startTime) * Time.deltaTime)*/
         );
 
+
         if(transform.position.y > 30f) {
             transform.position = new Vector3(transform.position.x, 30f, transform.position.z);
         }
+            
+        //transform.Rotate(0, 0, Mathf.Atan2(rb.velocity.y, rb.velocity.x)*Mathf.Rad2Deg, Space.World);
+        //transform.rotation = Quaternion.Euler(new Vector3( 0, -Mathf.Atan2(rb.velocity.y, rb.velocity.x)*Mathf.Rad2Deg, 0));
     }
 
-    void SetCatched(bool beCatched) {
+    public void SetCatched(bool beCatched) {
         gameObject.GetComponent<Rigidbody>().useGravity = !beCatched;
         state = beCatched ? State.BirdCatched : State.Normal;
+        gameObject.GetComponent<Collider>().enabled = !beCatched;
+
     }
 }

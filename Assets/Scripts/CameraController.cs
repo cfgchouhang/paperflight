@@ -52,5 +52,7 @@ public class CameraController : MonoBehaviour {
         );
 
         yPrev = py;
+
+        print("co " + offset + " " + (transform.position));
     }
 }
